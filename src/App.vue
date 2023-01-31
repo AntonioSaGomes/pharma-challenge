@@ -1,13 +1,24 @@
 <script lang="ts">
 import Login from "./pages/Login.vue";
+import MainPage from "./pages/MainPage.vue";
 
 export default {
-  components: { Login },
+  components: { Login, MainPage },
+  data() {
+    return {
+      isAuthenticated: this.$auth0.isAuthenticated,
+    };
+  },
 };
 </script>
 
 <template>
-  <Login />
+  <template v-if="isAuthenticated">
+    <MainPage />
+  </template>
+  <template v-else>
+    <Login />
+  </template>
 </template>
 
 <style scoped>

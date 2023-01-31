@@ -2,19 +2,19 @@
   <div class="login-container-wrapper">
     <div class="login-container">
       <span class="title bold">Korber Pharma</span>
-      <Input label="name" placeholder="name"></Input>
-      <Input label="password" placeholder="password" type="password"></Input>
+      <!--       <Input label="name" placeholder="name"></Input>
+      <Input label="password" placeholder="password" type="password"></Input> -->
       <Button text="Login" />
       <div class="social-logins-wrapper">
         <p>Or sign up via social login</p>
         <div class="social-logins">
-          <div class="social-login-item clickable">
+          <div class="social-login-item clickable" role="button" @click="login">
             <img class="icon-large" src="/icons/google-btn.svg" />
           </div>
-          <div class="social-login-item clickable">
+          <div class="social-login-item clickable" role="button" @click="login">
             <img class="icon-large" src="/icons/facebook-btn.svg" />
           </div>
-          <div class="social-login-item clickable">
+          <div class="social-login-item clickable" role="button" @click="login">
             <img class="icon-large" src="/icons/windows-btn.svg" />
           </div>
         </div>
@@ -27,8 +27,10 @@ import Button from "../components/Button/Button.vue";
 import Input from "../components/Input/Input.vue";
 
 export default {
-  data() {
-    return {};
+  methods: {
+    login() {
+      this.$auth0.loginWithRedirect();
+    },
   },
   components: {
     Button,
