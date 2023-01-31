@@ -1,34 +1,49 @@
 <template>
   <div class="login-container-wrapper">
     <div class="login-container">
-      <span class="title bold">Login</span>
+      <span class="title bold">Korber Pharma</span>
       <Input label="name" placeholder="name"></Input>
       <Input label="password" placeholder="password" type="password"></Input>
       <Button text="Login" />
-      <div class="social-logins">
-        <div class="social-login-item clickable">
-          <img class="icon-large" src="/icons/google-btn.svg" />
-        </div>
-        <div class="social-login-item clickable">
-          <img class="icon-large" src="/icons/facebook-btn.svg" />
-        </div>
-        <div class="social-login-item clickable">
-          <img class="icon-large" src="/icons/windows-btn.svg" />
+      <div class="social-logins-wrapper">
+        <p>Or sign up via social login</p>
+        <div class="social-logins">
+          <div class="social-login-item clickable">
+            <img class="icon-large" src="/icons/google-btn.svg" />
+          </div>
+          <div class="social-login-item clickable">
+            <img class="icon-large" src="/icons/facebook-btn.svg" />
+          </div>
+          <div class="social-login-item clickable">
+            <img class="icon-large" src="/icons/windows-btn.svg" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
+import Button from "../components/Button/Button.vue";
+import Input from "../components/Input/Input.vue";
+
 export default {
   data() {
     return {};
   },
-  components: {},
+  components: {
+    Button,
+    Input,
+  },
 };
 </script>
 
 <style scoped>
+.social-logins-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .login-container-wrapper {
   overflow-y: auto;
   height: 100%;
@@ -40,6 +55,7 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  height: 100%;
   align-self: center;
 }
 

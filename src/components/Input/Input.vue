@@ -5,6 +5,7 @@
       :type="type"
       :placeholder="placeholder"
       :id="label"
+      :label="label"
       v-model="inputValue"
     />
   </div>
@@ -47,7 +48,9 @@ export default defineComponent({
 
 .input-container input {
   padding: 0.5rem;
-  width: 200px;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+  width: 250px;
 }
 
 .input-container input::placeholder {

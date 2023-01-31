@@ -1,16 +1,13 @@
 <template>
-  <div
-    class="button-container clickable"
+  <button
     :style="{ 'background-color': backgroundColor ? backgroundColor : '' }"
   >
-    <button>
-      {{ text }}
-    </button>
-  </div>
+    {{ text }}
+  </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
@@ -20,7 +17,7 @@ export default defineComponent({
     },
     backgroundColor: {
       type: String,
-      default: "#4caf50",
+      default: "white",
     },
   },
 });
@@ -32,6 +29,6 @@ export default defineComponent({
 }
 
 .button-container {
-  color: var(--car-card-btn);
+  color: var(--button-color);
 }
 </style>
