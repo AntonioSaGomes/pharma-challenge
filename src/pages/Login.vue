@@ -1,30 +1,15 @@
 <template>
   <div class="login-container-wrapper">
     <div class="login-container">
-      <span class="title bold">Korber Pharma</span>
-      <!--       <Input label="name" placeholder="name"></Input>
-      <Input label="password" placeholder="password" type="password"></Input> -->
-      <Button text="Login" />
-      <div class="social-logins-wrapper">
-        <p>Or sign up via social login</p>
-        <div class="social-logins">
-          <div class="social-login-item clickable" role="button" @click="login">
-            <img class="icon-large" src="/icons/google-btn.svg" />
-          </div>
-          <div class="social-login-item clickable" role="button" @click="login">
-            <img class="icon-large" src="/icons/facebook-btn.svg" />
-          </div>
-          <div class="social-login-item clickable" role="button" @click="login">
-            <img class="icon-large" src="/icons/windows-btn.svg" />
-          </div>
-        </div>
-      </div>
+      <h1 class="title bold">Koerber Pharma</h1>
+      <img class="logo-icon" src="/logo.svg" />
+      <Button text="Login" @click="login" />
     </div>
   </div>
 </template>
 <script lang="ts">
-import Button from "../components/Button/Button.vue";
-import Input from "../components/Input/Input.vue";
+import Button from "../material/Button/Button.vue";
+import Input from "../material/Input/Input.vue";
 
 export default {
   methods: {
@@ -54,10 +39,10 @@ export default {
 .login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 1rem;
-  height: 100%;
+  height: 400px;
   align-self: center;
 }
 
@@ -74,5 +59,10 @@ export default {
 
 .social-login-item {
   padding: 1rem;
+}
+
+.logo-icon {
+  width: 10rem;
+  height: 6rem;
 }
 </style>

@@ -1,17 +1,18 @@
 <template>
   <div class="header">
-    <div class="title">
+    <div class="header-description">
+      <img class="header-logo" src="/logo-white.svg" />
       <h1>{{ title }}</h1>
     </div>
-    <div class="header-options">
+    <div v-show="user != null" class="header-options">
       <img
         class="icon clickable"
         role="button"
         src="/icons/logout.svg"
         @click="logout"
       />
-      <p>{{ user.name }}</p>
-      <img class="icon-large" :src="user.picture" />
+      <p class="bold">{{ user?.name }}</p>
+      <img class="icon-large" :src="user?.picture" />
     </div>
   </div>
 </template>
@@ -40,6 +41,7 @@ export default defineComponent({
 <style>
 .header {
   background-color: var(--secondary-color);
+  color: white;
   width: calc(100% - 2rem);
   display: flex;
   justify-content: space-between;
@@ -51,5 +53,15 @@ export default defineComponent({
   gap: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+.header-description {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.header-logo {
+  height: 2rem;
+  width: 5rem;
 }
 </style>

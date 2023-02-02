@@ -6,7 +6,8 @@
       :placeholder="placeholder"
       :id="label"
       :label="label"
-      v-model="inputValue"
+      :value="modelValue"
+      @input="updateValue"
     />
   </div>
 </template>
@@ -15,7 +16,11 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  emits: ["update:modelValue"],
   props: {
+    modelValue: {
+      type: String,
+    },
     label: {
       type: String,
       required: true,
@@ -34,6 +39,14 @@ export default defineComponent({
       inputValue: "",
     };
   },
+  methods: {
+    updateValue(event: Event) {
+      this.$emit(
+        "update:modelValue",
+        (<HTMLTextAreaElement>event.target).value
+      );
+    },
+  },
 });
 </script>
 
@@ -47,9 +60,9 @@ export default defineComponent({
 }
 
 .input-container input {
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-radius: 5px;
-  border: 1px solid lightblue;
+  border: 2px solid lightblue;
   width: 250px;
 }
 

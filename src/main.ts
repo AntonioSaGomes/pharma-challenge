@@ -7,6 +7,7 @@ import { createAuth0 } from "@auth0/auth0-vue";
 const domain = "fisio.eu.auth0.com";
 const clientId = "Z0NBrRVust481NCjWFe9OSgLvaGUKr15";
 const redirect_uri = "http://localhost:3000/callback";
+import router from "./router";
 
 const app = createApp(App);
 
@@ -20,4 +21,5 @@ app
       },
     })
   )
+  .use(router)
   .mount("#app");

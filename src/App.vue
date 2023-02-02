@@ -1,23 +1,42 @@
 <script lang="ts">
 import Login from "./pages/Login.vue";
 import MainPage from "./pages/MainPage.vue";
+import LoadingSpinner from "./material/LoadingSpinner/LoadingSpinner.vue";
+import { APP_TITLE } from "./constants/constants";
+import Header from "./components/Header/Header.vue";
 
 export default {
-  components: { Login, MainPage },
+  components: { Login, MainPage, LoadingSpinner, Header },
   data() {
     return {
+      isLoading: this.$auth0.isLoading,
       isAuthenticated: this.$auth0.isAuthenticated,
+      title: APP_TITLE,
     };
+  },
+  watch: {
+    isLoading() {
+      if (!this.isLoading) {
+        if (this.isAuthenticated && this.$route.name === "login")
+          this.$router.push({ name: "select-user-post" });
+      }
+    },
   },
 };
 </script>
 
 <template>
-  <template v-if="isAuthenticated">
-    <MainPage />
+  <template v-if="isLoading">
+    <LoadingSpinner />
   </template>
   <template v-else>
-    <Login />
+    <Header :title="title" />
+    <template v-if="!isAuthenticated">
+      <Login />
+    </template>
+    <template v-else>
+      <RouterView />
+    </template>
   </template>
 </template>
 

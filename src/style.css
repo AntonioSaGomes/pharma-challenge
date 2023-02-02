@@ -3,11 +3,9 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  height: fill-available;
-  height: -webkit-fill-available;
   --main-color: #e2effd;
-  --secondary-color: #f6b93b;
-  --button-color: #add4f2;
+  --secondary-color: #43a047;
+  --button-color: #33adff;
   --text-color: #2e5392;
 
   color-scheme: light dark;
@@ -86,7 +84,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--button-color);
   }
 }
 
@@ -140,6 +138,18 @@ button:focus-visible {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 :root,
