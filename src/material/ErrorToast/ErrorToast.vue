@@ -26,7 +26,7 @@ export default defineComponent({
   right: 20px;
   padding: 20px;
   background-color: #f44336;
-  color: white;
+  color: var(--secondary-text-color);
   border-radius: 5px;
 }
 </style>

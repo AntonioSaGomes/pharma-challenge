@@ -41,7 +41,7 @@ export default defineComponent({
 <style>
 .header {
   background-color: var(--secondary-color);
-  color: white;
+  color: var(--secondary-text-color);
   width: calc(100% - 2rem);
   display: flex;
   justify-content: space-between;

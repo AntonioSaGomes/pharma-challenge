@@ -9,19 +9,22 @@
         <LoadingSpinner />
       </template>
       <template v-else>
-        <transition name="fade">
-          <div v-show="!loading" class="post-list-container">
-            <UserPost v-for="post in user_posts" :post="post" />
-          </div>
-        </transition>
+        <div class="post-list-container">
+          <UserPost v-for="post in user_posts" :post="post" />
+        </div>
       </template>
     </div>
-
-    <PostContainerModal
-      @newPost="addNewPost"
-      :showModal="showNewPostModal"
-      @close="showNewPostModal = false"
-    />
+    <teleport to="body">
+      <transition name="fade">
+        <div class="modal" v-if="showNewPostModal">
+          <PostContainerModal
+            @newPost="addNewPost"
+            :showModal="showNewPostModal"
+            @close="showNewPostModal = false"
+          />
+        </div>
+      </transition>
+    </teleport>
   </div>
 </template>
 <script lang="ts">
@@ -69,13 +72,15 @@ export default defineComponent({
 </script>
 <style scoped>
 .post-list-wrapper {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: max(90%, 400px);
+  width: max(90%);
 }
 
 .post-list-container-wrapper {
-  height: 400px;
-  max-height: 400px;
+  flex-grow: 1;
+  height: 0px;
   width: 100%;
 }
 
@@ -85,6 +90,7 @@ export default defineComponent({
   height: 100%;
   overflow-y: scroll;
   padding: 1rem;
+  box-sizing: border-box;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
@@ -94,5 +100,15 @@ export default defineComponent({
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

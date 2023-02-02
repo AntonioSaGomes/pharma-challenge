@@ -26,6 +26,7 @@ export default defineComponent({
 }
 
 .main-container-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;

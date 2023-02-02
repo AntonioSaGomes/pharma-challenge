@@ -15,11 +15,15 @@ export default {
     };
   },
   watch: {
-    isLoading() {
-      if (!this.isLoading) {
-        if (this.isAuthenticated && this.$route.name === "login")
-          this.$router.push({ name: "select-user-post" });
+    // a more robust solution would be to use router navigations guards
+    $route() {
+      if (!this.isAuthenticated && this.$route.name !== "login") {
+        this.$router.push({ name: "login" });
       }
+    },
+    isAuthenticated() {
+      if (this.$route.name === "login" && this.isAuthenticated)
+        this.$router.push({ name: "select-user-post" });
     },
   },
 };

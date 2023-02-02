@@ -77,6 +77,10 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
+    --main-color: #e2effd;
+    --secondary-color: #43a047;
+    --button-color: #33adff;
+    --secondary-text-color: white;
     color: #213547;
     background-color: #ffffff;
   }
@@ -100,7 +104,7 @@ button:focus-visible {
     background-color: blue;
   }
   input {
-    background-color: white;
+    background-color: var(--secondary-text-color);
   }
 }
 
@@ -161,7 +165,9 @@ body {
 #app {
   height: 100%;
 }
-
+h1 {
+  font-size: 2rem;
+}
 @media screen and (max-width: 800px) {
   :root {
     font-size: 14px;

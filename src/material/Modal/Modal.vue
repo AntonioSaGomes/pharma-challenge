@@ -1,20 +1,18 @@
 <template>
-  <transition name="fade">
-    <div class="modal-wrapper" v-show="showModal">
-      <div class="modal-container">
-        <header class="modal-header">
-          <div v-if="title">{{ title }}</div>
-          <img
-            v-if="showCloseButton"
-            class="close-btn clickable"
-            src="/icons/close.svg"
-            @click="closeModal"
-          />
-        </header>
-        <slot></slot>
-      </div>
+  <div class="modal-wrapper">
+    <div class="modal-container">
+      <img
+        v-if="showCloseButton"
+        class="close-btn clickable"
+        src="/icons/close.svg"
+        @click="closeModal"
+      />
+      <header v-if="title" class="modal-header">
+        <p>{{ title }}</p>
+      </header>
+      <slot></slot>
     </div>
-  </transition>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -62,7 +60,9 @@ export default defineComponent({
   position: relative;
   background-color: #ffffff;
   padding: 2rem;
-  width: min(600px, 80%);
+  width: min(600px, 100%);
+  height: fit-content;
+  box-sizing: border-box;
   border-radius: 0.25rem;
 }
 

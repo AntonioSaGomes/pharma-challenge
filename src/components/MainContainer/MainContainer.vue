@@ -9,7 +9,7 @@
   </div>
   <div class="main-container w-100">
     <RouterView v-slot="{ Component }">
-      <transition name="route" mode="out-in">
+      <transition :name="transitionName" mode="out-in">
         <component :is="Component"> </component>
       </transition>
     </RouterView>
@@ -18,7 +18,15 @@
 <script lang="ts">
 export default {
   data() {
-    return {};
+    return {
+      transitionName: "route-right",
+    };
+  },
+  watch: {
+    $route() {
+      this.transitionName =
+        this.$route.name === "user-posts" ? "route-left" : "route-right";
+    },
   },
   computed: {
     isUserPage() {
@@ -47,27 +55,36 @@ export default {
 }
 
 .btn-wrapper {
-  display: flex;
-  justify-items: flex-start;
-  margin-left: 3rem;
-  box-sizing: border-box;
-  width: calc(100% - 3rem);
+  position: absolute;
+  left: 0.5rem;
+  top: 1rem;
 }
 
-.route-enter-from {
+.route-left-enter-from {
   opacity: 0;
   transform: translateX(500px);
 }
-
-.route-enter-active {
-  transition: all 0.5s ease-out;
-}
-.route-leave-to {
+.route-right-enter-from {
   opacity: 0;
   transform: translateX(-500px);
 }
 
-.route-leave-active {
-  transition: all 0.5s ease-in;
+.route-right-enter-active,
+.route-left-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.route-left-leave-to {
+  opacity: 0;
+  transform: translateX(-500px);
+}
+.route-right-leave-to {
+  opacity: 0;
+  transform: translateX(500px);
+}
+
+.route-right-enter-active,
+.route-left-enter-active {
+  transition: all 0.3s ease-in;
 }
 </style>

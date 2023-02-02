@@ -33,7 +33,7 @@ export default defineComponent({
   watch: {
     disabled: {
       handler() {
-        this.opacity = this.disabled ? 0.3 : 0.8;
+        this.opacity = this.disabled ? 0.3 : 0.9;
       },
       immediate: true,
     },
@@ -45,7 +45,7 @@ export default defineComponent({
     },
     handleMouseLeave() {
       if (this.disabled) return;
-      this.opacity = 0.8;
+      this.opacity = 0.9;
     },
   },
 });
@@ -55,6 +55,6 @@ export default defineComponent({
 button {
   width: fit-content;
   padding: 0.8rem;
-  color: white;
+  color: var(--secondary-text-color);
 }
 </style>

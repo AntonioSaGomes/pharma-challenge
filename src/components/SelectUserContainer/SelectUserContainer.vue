@@ -91,10 +91,12 @@ export default {
 <style scoped>
 .select-user-container {
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(2, 1fr);
-  height: calc(100% - 8rem);
-  width: calc(100% - 8rem);
+  height: 100%;
+  width: 100%;
   padding: 4rem;
+  box-sizing: border-box;
   gap: 2rem;
 }
 .user-posts-login-wrapper {
@@ -117,6 +119,7 @@ export default {
 @media screen and (max-width: 800px) {
   .select-user-container {
     grid-template-columns: 1fr;
+    padding: 1rem;
   }
 
   .sample-user-post {
