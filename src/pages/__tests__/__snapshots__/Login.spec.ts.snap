@@ -1,18 +1,9 @@
 // Vitest Snapshot v1
 
-exports[`Login > renders the component correctly 1`] = `
-"<div class=\\"login-container-wrapper\\" data-v-bbf10af8=\\"\\">
-  <div class=\\"login-container\\" data-v-bbf10af8=\\"\\"><span class=\\"title bold\\" data-v-bbf10af8=\\"\\">Korber Pharma</span>
-    <div class=\\"input-container\\" data-v-d06e05c9=\\"\\" data-v-bbf10af8=\\"\\"><label class=\\"capitalize bold\\" for=\\"name\\" data-v-d06e05c9=\\"\\">name</label><input type=\\"text\\" placeholder=\\"name\\" id=\\"name\\" label=\\"name\\" data-v-d06e05c9=\\"\\"></div>
-    <div class=\\"input-container\\" data-v-d06e05c9=\\"\\" data-v-bbf10af8=\\"\\"><label class=\\"capitalize bold\\" for=\\"password\\" data-v-d06e05c9=\\"\\">password</label><input type=\\"password\\" placeholder=\\"password\\" id=\\"password\\" label=\\"password\\" data-v-d06e05c9=\\"\\"></div><button style=\\"background-color: white;\\" data-v-86ca482c=\\"\\" data-v-bbf10af8=\\"\\">Login</button>
-    <div class=\\"social-logins-wrapper\\" data-v-bbf10af8=\\"\\">
-      <p data-v-bbf10af8=\\"\\">Or sign up via social login</p>
-      <div class=\\"social-logins\\" data-v-bbf10af8=\\"\\">
-        <div class=\\"social-login-item clickable\\" data-v-bbf10af8=\\"\\"><img class=\\"icon-large\\" src=\\"/icons/google-btn.svg\\" data-v-bbf10af8=\\"\\"></div>
-        <div class=\\"social-login-item clickable\\" data-v-bbf10af8=\\"\\"><img class=\\"icon-large\\" src=\\"/icons/facebook-btn.svg\\" data-v-bbf10af8=\\"\\"></div>
-        <div class=\\"social-login-item clickable\\" data-v-bbf10af8=\\"\\"><img class=\\"icon-large\\" src=\\"/icons/windows-btn.svg\\" data-v-bbf10af8=\\"\\"></div>
-      </div>
-    </div>
-  </div>
+exports[`LoginPage > renders the component correctly 1`] = `
+"<div class=\\"login-container-wrapper\\" data-v-eec819be=\\"\\">
+  <div class=\\"login-container\\" data-v-eec819be=\\"\\"><img class=\\"logo-icon\\" src=\\"/logo-white.svg\\" data-v-eec819be=\\"\\">
+    <p data-v-eec819be=\\"\\">Access our platform too see some amazing content</p><button style=\\"opacity: 0.9;\\" class=\\"login-btn\\" data-v-14b65c88=\\"\\" data-v-eec819be=\\"\\">Login</button>
+  </div><img class=\\"login-img\\" src=\\"login-image.png\\" data-v-eec819be=\\"\\">
 </div>"
 `;

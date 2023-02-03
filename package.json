@@ -8,13 +8,12 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
-    "test:e2e": "start-server-and-test preview :4173 'cypress run --e2e'",
+    "test:e2e": "cypress run",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' :4173 'cypress open --e2e'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@auth0/auth0-vue": "^2.0.0",
-    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/test-utils": "^2.2.8",
     "vitest": "^0.28.3",
     "vue": "^3.2.45",
@@ -22,6 +21,7 @@
     "vue-axios": "^3.5.2"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.4",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.12",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -31,8 +31,8 @@
     "cypress": "^12.0.2",
     "eslint": "^8.22.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "start-server-and-test": "^1.15.2",
     "eslint-plugin-vue": "^9.3.0",
+    "start-server-and-test": "^1.15.2",
     "jsdom": "^20.0.3",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",

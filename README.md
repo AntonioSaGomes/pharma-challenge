@@ -1,18 +1,63 @@
-# Vue 3 + TypeScript + Vite
+## Environment Setup
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+To run the development environment, use the following command:
 
-## Recommended IDE Setup
+```bash
+npm install
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+npm run dev
+```
 
-## Type Support For `.vue` Imports in TS
+## Tests
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+To run unit tests, use the following command:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```bash
+npm run test:unit
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## E2E
+
+To run end-to-end tests, use the following command:
+
+```bash
+npm run test:e2e
+```
+
+## Usage
+
+- User opens the webpage and should be required to logging if is not already authenticated.
+
+- After logging into the organization account the user sees a page
+  that shows an example post and an input to fill an user email to see his/her posts.
+
+- A correct input should transition to the page showing the posts made by the user.
+
+- Additionally you can add new posts by click the new post button which should
+  prompt a modal to do so.
+  Want to see other users posts? Click back and fill a new user's email.
+
+## Approach
+
+- This project uses `@auth0/auth0-vue` to handle the Auth0 authentication process.
+- API calls are performed using `axios`.
+- Navigation between pages and views is managed using `Vue Router`, and the last entered email is stored using `localStorage`.
+- Uses Transitions for animations between pages and states.
+- Teleport feature for toast and modals.
+
+## Project Structure
+
+- Components are divided into two categories: `Material` (reusable) and non-reusable(separate folders).
+- Pages are groups of components that make up a full page, with only two pages in this project: `LoginPage` and `MainPage`.
+
+- Services and models folder for retrival of data.
+
+- Individual Tests can be found inside each component's folder with test data inside mocks folder.
+
+## Considerations
+
+- Tailwind was considered though native css and vue transitions and teleport features
+  we're something I want to use a bit more.
+- Vuex or Pinia was not used although a potencial use case would be
+  to store the users information and display it the users post page(this wouldn't be enough on refresh).
+- Navigation auth guards would have been nice to implement to avoid some redirects.
