@@ -1,27 +1,27 @@
 <template lang="">
-  <Modal :showModal="showModal" @close="$emit('close')">
+  <CustomModal :showModal="showModal" @close="$emit('close')">
     <div class="post-container">
       <div class="title">
-        <Input label="title" v-model="title" />
+        <CustomInput label="title" v-model="title" />
       </div>
       <label class="bold" value="description">Description</label>
       <textarea label="description" v-model="body" />
       <div class="post-button-wrapper">
-        <Button :disabled="disabledForm" text="Send" @click="send" />
+        <CustomButton :disabled="disabledForm" text="Send" @click="send" />
       </div>
     </div>
-  </Modal>
+  </CustomModal>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { sendPost } from "../../services/posts.service";
-import Button from "../../material/Button/Button.vue";
-import Input from "../../material/Input/Input.vue";
-import Modal from "../../material/Modal/Modal.vue";
+import CustomButton from "../../material/CustomButton/CustomButton.vue";
+import CustomInput from "../../material/CustomInput/CustomInput.vue";
+import CustomModal from "../../material/CustomModal/CustomModal.vue";
 
 export default defineComponent({
-  components: { Button, Input, Modal },
+  components: { CustomButton, CustomInput, CustomModal },
   emits: ["close", "newPost"],
   props: {
     showModal: {

@@ -4,11 +4,11 @@
       <div class="user-posts-login">
         <p>Enter the users email to see some awesome posts</p>
         <div class="user-input">
-          <Input v-model="user_email" type="email" label="email" />
-          <Button
+          <CustomInput v-model="user_email" type="email" label="email" />
+          <CustomButton
             text="Next"
             :disabled="!isValidEmail"
-            @click.native="handleNextStep"
+            @click="handleNextStep"
           />
         </div>
         <ErrorToast v-if="errorMessage" :errorMessage="errorMessage" />
@@ -18,8 +18,8 @@
   </div>
 </template>
 <script lang="ts">
-import Button from "../../material/Button/Button.vue";
-import Input from "../../material/Input/Input.vue";
+import CustomButton from "../../material/CustomButton/CustomButton.vue";
+import CustomInput from "../../material/CustomInput/CustomInput.vue";
 import { K_PHARMA_USER } from "../../constants/constants";
 import { getUsers } from "../../services/users.service";
 import { User } from "../../models/User";
@@ -28,7 +28,7 @@ import UserPost from "../UserPost/UserPost.vue";
 import { MOCK_POST } from "../../mocks/mockData";
 
 export default {
-  components: { Input, Button, ErrorToast, UserPost },
+  components: { CustomInput, CustomButton, ErrorToast, UserPost },
   data() {
     return {
       user_email: "",
@@ -53,6 +53,7 @@ export default {
   },
   computed: {
     isEmail() {
+      //eslint-disable-next-line
       return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
         this.user_email
       );

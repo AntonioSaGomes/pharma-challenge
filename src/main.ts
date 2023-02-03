@@ -4,9 +4,9 @@ import App from "./App.vue";
 
 import { createAuth0 } from "@auth0/auth0-vue";
 
-const domain = "fisio.eu.auth0.com";
-const clientId = "Z0NBrRVust481NCjWFe9OSgLvaGUKr15";
-const redirect_uri = "http://localhost:3000/callback";
+const domain = import.meta.env.VITE_DOMAIN as string;
+const clientId = import.meta.env.VITE_CLIENT_ID as string;
+const redirect_uri = import.meta.env.VITE_REDIRECT_URI as string;
 import router from "./router";
 
 const app = createApp(App);

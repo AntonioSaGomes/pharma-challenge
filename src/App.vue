@@ -1,12 +1,11 @@
 <script lang="ts">
-import Login from "./pages/Login.vue";
-import MainPage from "./pages/MainPage.vue";
 import LoadingSpinner from "./material/LoadingSpinner/LoadingSpinner.vue";
 import { APP_TITLE } from "./constants/constants";
-import Header from "./components/Header/Header.vue";
+import KPHeader from "./components/KPHeader/KPHeader.vue";
+import LoginPage from "./pages/LoginPage.vue";
 
 export default {
-  components: { Login, MainPage, LoadingSpinner, Header },
+  components: { LoginPage, LoadingSpinner, KPHeader },
   data() {
     return {
       isLoading: this.$auth0.isLoading,
@@ -16,14 +15,12 @@ export default {
   },
   watch: {
     // a more robust solution would be to use router navigations guards
-    $route() {
-      if (!this.isAuthenticated && this.$route.name !== "login") {
-        this.$router.push({ name: "login" });
-      }
-    },
-    isAuthenticated() {
+    isLoading() {
       if (this.$route.name === "login" && this.isAuthenticated)
         this.$router.push({ name: "select-user-post" });
+      if (!this.isAuthenticated) {
+        this.$router.push({ name: "login" });
+      }
     },
   },
 };
@@ -34,9 +31,9 @@ export default {
     <LoadingSpinner />
   </template>
   <template v-else>
-    <Header :title="title" />
+    <KPHeader :title="title" />
     <template v-if="!isAuthenticated">
-      <Login />
+      <LoginPage />
     </template>
     <template v-else>
       <RouterView />

@@ -43,7 +43,7 @@ export default defineComponent({
     updateValue(event: Event) {
       this.$emit(
         "update:modelValue",
-        (<HTMLTextAreaElement>event.target).value
+        (event.target as HTMLTextAreaElement).value
       );
     },
   },

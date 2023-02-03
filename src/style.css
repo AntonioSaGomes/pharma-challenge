@@ -78,11 +78,11 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     --main-color: #e2effd;
-    --secondary-color: #43a047;
-    --button-color: #33adff;
+    --secondary-color: #00796b;
+    --button-color: #00796b;
     --secondary-text-color: white;
-    color: #213547;
-    background-color: #ffffff;
+    color: white;
+    background-color: #26a69a;
   }
   a:hover {
     color: #747bff;
@@ -93,21 +93,26 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    color: black;
-    background-color: #ffffff;
+    :root {
+      --main-color: #262626;
+      --secondary-color: #b2dfdb;
+      --button-color: #b2dfdb;
+      --secondary-text-color: white;
+      color: white;
+      background-color: #262626;
+    }
+    a:hover {
+      color: #b2dfdb;
+    }
+    button {
+      background-color: var(--button-color);
+    }
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: blue;
-  }
-  input {
-    background-color: var(--secondary-text-color);
-  }
-}
-
+  
+  
+  
+  
+  
 .icon {
   height: 1.5rem;
   width: 1.5rem;
@@ -173,9 +178,4 @@ h1 {
     font-size: 14px;
   }
 }
-
-@media screen and (max-width: 600px) {
-  :root {
-    font-size: 12px;
-  }
 }

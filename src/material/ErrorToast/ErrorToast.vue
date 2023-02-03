@@ -1,7 +1,9 @@
 <template>
-  <div class="toast-wrapper">
-    <div v-if="errorMessage" class="toast-error">{{ errorMessage }}</div>
-  </div>
+  <Teleport to="body">
+    <div class="toast-wrapper">
+      <div v-if="errorMessage" class="toast-error">{{ errorMessage }}</div>
+    </div>
+  </Teleport>
 </template>
 
 <script lang="ts">

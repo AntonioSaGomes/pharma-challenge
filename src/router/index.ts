@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../pages/Login.vue";
+import LoginPage from "../pages/LoginPage.vue";
 import PostList from "../components/PostList/PostList.vue";
 import SelectUserContainer from "../components/SelectUserContainer/SelectUserContainer.vue";
 import MainPage from "../pages/MainPage.vue";
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: "/",
       name: "login",
-      component: Login,
+      component: LoginPage,
     },
     {
       path: "/posts",

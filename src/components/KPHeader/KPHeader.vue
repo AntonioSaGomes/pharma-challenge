@@ -1,7 +1,11 @@
 <template>
   <div class="header">
     <div class="header-description">
-      <img class="header-logo" src="/logo-white.svg" />
+      <img
+        class="header-logo"
+        src="/logo-white.svg"
+        referrerpolicy="no-referrer"
+      />
       <h1>{{ title }}</h1>
     </div>
     <div v-show="user != null" class="header-options">

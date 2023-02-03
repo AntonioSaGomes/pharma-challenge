@@ -58,8 +58,9 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #ffffff;
+  background-color: #b2dfdb;
   padding: 2rem;
+  color: black;
   width: min(600px, 100%);
   height: fit-content;
   box-sizing: border-box;

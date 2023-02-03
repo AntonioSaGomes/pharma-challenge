@@ -2,7 +2,7 @@
   <div class="post-list-wrapper">
     <div class="post-list-header">
       <h2 data-testid="posts-user-name">Posts</h2>
-      <Button text="New Post" @click.native="handleNewPost" />
+      <CustomButton text="New Post" @click="handleNewPost" />
     </div>
     <div class="post-list-container-wrapper">
       <template v-if="loading">
@@ -10,7 +10,7 @@
       </template>
       <template v-else>
         <div class="post-list-container">
-          <UserPost v-for="post in user_posts" :post="post" />
+          <UserPost :key="post.id" v-for="post in user_posts" :post="post" />
         </div>
       </template>
     </div>
@@ -32,14 +32,14 @@ import { defineComponent } from "vue";
 import { Post } from "../../models/Post";
 import { getUserPostsList } from "../../services/posts.service";
 import UserPost from "../UserPost/UserPost.vue";
-import Button from "../../material/Button/Button.vue";
+import CustomButton from "../../material/CustomButton/CustomButton.vue";
 import PostContainerModal from "../PostContainerModal/PostContainerModal.vue";
 import LoadingSpinner from "../../material/LoadingSpinner/LoadingSpinner.vue";
 
 export default defineComponent({
   components: {
     UserPost,
-    Button,
+    CustomButton,
     PostContainerModal,
     LoadingSpinner,
   },
@@ -91,7 +91,7 @@ export default defineComponent({
   overflow-y: scroll;
   padding: 1rem;
   box-sizing: border-box;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 .post-list-header {
@@ -100,6 +100,7 @@ export default defineComponent({
   align-items: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  border-bottom: 2px solid var(--main-color);
 }
 
 .fade-enter-active,

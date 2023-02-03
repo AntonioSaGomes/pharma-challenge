@@ -6,15 +6,11 @@
   </div>
 </template>
 <script lang="ts">
-import Header from "../components/Header/Header.vue";
-import PostContainerModal from "../components/PostContainerModal/PostContainerModal.vue";
 import MainContainer from "../components/MainContainer/MainContainer.vue";
 
 import { defineComponent } from "vue";
 export default defineComponent({
   components: {
-    Header,
-    PostContainerModal,
     MainContainer,
   },
 });

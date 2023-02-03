@@ -29,8 +29,6 @@ export default defineComponent({
   align-items: start;
   flex-direction: column;
   gap: 1rem;
-  height: 300px;
-  overflow-y: hidden;
   padding: 0.5rem;
   border-radius: 3px;
   border: 2px solid;
