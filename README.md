@@ -18,6 +18,7 @@ npm run test:unit
 
 ## E2E
 
+First make sure your environment is running.\
 To run end-to-end tests, use the following command:
 
 ```bash
